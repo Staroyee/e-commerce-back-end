@@ -6,6 +6,16 @@ const { Category, Product } = require('../../models');
 router.get('/api/categories', (req, res) => {
   // TODO: find all categories
   // be sure to include its associated Products
+  try {
+    const categories = await Category.findAll();
+    if(!categories) {
+      res.status(404).json({ message: 'No categories found'});
+      return;
+    }
+    res.status(200).json(categories);
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 router.get('/api/categories/:id', (req, res) => {
