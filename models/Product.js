@@ -9,7 +9,7 @@ class Product extends Model {}
 // set up fields and rules for Product model
 Product.init(
   {
-    // TODO: define columns
+    // Product columns defined
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
